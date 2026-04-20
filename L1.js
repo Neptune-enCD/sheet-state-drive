@@ -69,10 +69,3 @@ function read(id) {
     return rawValue || null;
   }
 }
-
-function test() {
-  for (i = 1; i <= 5; i++) { 
-    l1_write(i,"Hello World!" + i,"test");
-    Logger.log(l1_read(i));
-  }
-}
