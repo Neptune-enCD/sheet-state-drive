@@ -1,7 +1,7 @@
 # Sheet-State-Drive (SSD)
 **Version:** 0.6_B (Unstable / Development)
 
--# Copyright (c) 2026 Neptune-enCD
+<sub> Copyright (c) 2026 Neptune-enCD </sub>
 
 ### Technical Advisory
 This project is currently in **BETA pre-release**. Users should expect significant bugs, potential crashes, and data instability. Please report all defects via the repository's Issue tracker to facilitate patching and stability improvements.
