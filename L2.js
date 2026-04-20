@@ -1,5 +1,6 @@
-const SSD_ID = "13XI2l8r_0A1cLQ3DqRDPldJR1fkMetbDHYKpibqP3-8";
+const SSD_ID = "[YOUR SPREADSHEET ID HERE]";
 const SSD_NAME = "SSD";
+//repeat the same thing you did in L1.js
 
 function id_read_(id) {
   if (id > 0) {
