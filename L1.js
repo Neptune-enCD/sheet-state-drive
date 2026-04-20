@@ -4,9 +4,10 @@
  * Reserved: Row 1 is used for the Mega Array (ID 0)
  */
 
-const SSD_ID = "13XI2l8r_0A1cLQ3DqRDPldJR1fkMetbDHYKpibqP3-8";
-//my SSD sheet link. make a copy of this spreadsheet if you want faster drive with more storage
+const SSD_ID = "[YOUR SPREADSHEET ID]";
+//input your spreadsheet ID here
 const SSD_NAME = "SSD";
+//change the name of the sheet name (DIFFERENT FROM SPREADSHEET NAME) to SSD
 
 /**
  * BUS LOGIC: Zigzag ID -> Physical Cell
