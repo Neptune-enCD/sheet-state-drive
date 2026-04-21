@@ -22,15 +22,57 @@ The system is comprised of two core components:
 
 ## Installation and Setup
 
-### Phase 1: Spreadsheet Configuration
+### Sheet setup:
+
+### Step 1: Spreadsheet Configuration
 1. Initialize a new, empty Google Spreadsheet.
 2. Navigate to the **Extensions** menu and select **Apps Script**.
 3. Replace any existing code in the editor with the logic provided in the following file:
    * [Access Spreadsheet Formulas (formulas.js)](formulas.js)
 4. Save the script project.
 
-### Phase 2: Implementation
+### Step 2: Implementation
 after the spreadsheet is set up and the code is entered into app-script, swap the constant **"SSD-ID"** with your spreadsheet ID (docs.google.com/spreadsheet/**yourID**/edit)
+
+---
+
+### Google App Script setup: (~5 minutes)
+
+### step 1: layer 1
+1. create a new empty script
+2. copy and paste:
+   * [Sheet-State-Drive layer 1 processor (L1.js)](L1.js)
+3. deploy the script under "library"
+4. copy the id (https://script.google.com/home/projects/**yourID**/edit)
+
+### step 2: layer 2
+1. create another empty script
+2. navigate to the "library" tab on the left under the script selection, and click "+"
+3. paste the id, click "lookup", and select version as "Head", select identifier as "L1", and click "add".
+4. copy and paste:
+   * [Sheet-State-Drive layer 2 processor (L2.js)](L2.js)
+5. (optional) rename the file to "L2" for easier navigation
+
+### step 3: layer 3 (user interface)
+1. add a new code file, and select "script"
+2. rename the new file to "L3"
+3. copy and paste:
+   * [Sheet-State-Drive user interface (L3.js)](L3.js)
+4. select deploy, then select as a library
+5. click deploy
+
+### you have completed setup!
+
+---
+
+## use instruction: (only after finishing the entire setup process)
+
+1. copy the ID of the script (refrence to the app script set up if you don't know what is the ID)
+2. in the script which you would like to use the SSD, select "+" on "library"
+3. paste the ID and click "lookup"
+4. select version to "head" and the identifier to "SSD" (you can set the identifier to anything, however I recommend "SSD")
+5. when you need to write, enter "SSD.write()", and the directory of the function will tell you what to imput
+6. same with read, enter "SSD.read()" and reference to the directory for instruction of the values to imput
 
 ---
 
