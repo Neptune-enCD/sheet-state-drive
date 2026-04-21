@@ -1,5 +1,5 @@
 # Sheet-State-Drive (SSD)
-**Version:** 0.6_B (Unstable / Development)
+**Version:** 0.7_B (Unstable / Development)
 
 <sub> Copyright (c) 2026 Neptune-enCD </sub>
 
