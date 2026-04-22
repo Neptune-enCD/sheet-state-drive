@@ -6,7 +6,7 @@
 ### Technical Advisory
 This project is currently in **BETA pre-release**. Users should expect significant bugs, potential crashes, and data instability. Please report all defects via the repository's Issue tracker to facilitate patching and stability improvements.
 
-**Projected Completion:** TBD  
+**Projected Initial release:**  27/4/2026 if no bugs are found
 **Licensing:** Distributed under the MIT License. Attribution to the original author is required.
 
 ---
