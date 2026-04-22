@@ -1,5 +1,4 @@
-const SSD_ID = "[YOUR SPREADSHEET ID HERE]";
-const SSD_NAME = "SSD";
+const SSD_URL = "[YOUR SPREADSHEET URL HERE]";
 //repeat the same thing you did in L1.js
 
 function id_read_(id) {
@@ -7,8 +6,8 @@ function id_read_(id) {
     const read_data = L1.read(id);
     return read_data
   } else {
-    const spreadsheet = SpreadsheetApp.openById(SSD_ID);
-    const sheet = spreadsheet.getSheetByName(SSD_NAME);
+    const spreadsheet = SpreadsheetApp.openByURL(SSD_URL);
+    const sheet = spreadsheet.getActiveSheet();
     let empty_cell;
     if (id === 0) {
       empty_cell = sheet.getRange(1,2).getValue();
@@ -31,8 +30,8 @@ function getMegaMap_() {
   }
 
   // 2. Cache miss: Perform the slow API/Spreadsheet request
-  const ss = SpreadsheetApp.openById(SSD_ID);
-  const raw = ss.getSheetByName(SSD_NAME).getRange("A1").getValue();
+  const ss = SpreadsheetApp.openByURL(SSD_URL);
+  const raw = ss.getActiveSheet().getRange("A1").getValue();
   
   if (!raw) return {};
 
