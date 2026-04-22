@@ -1,5 +1,5 @@
 # Sheet-State-Drive (SSD)
-**Version:** 0.7_B (Unstable / Development)
+**Version:** 0.7_B (Stable?)
 
 <sub> Copyright (c) 2026 Neptune-enCD </sub>
 
@@ -27,13 +27,13 @@ The system is comprised of two core components:
 
 ### Step 1: Spreadsheet Configuration
 1. Initialize a new, empty Google Spreadsheet.
-2. Navigate to the **Extensions** menu and select **Apps Script**.
-3. Replace any existing code in the editor with the logic provided in the following file:
+2. read through the directory along with the logic provided in the following file:
    * [Access Spreadsheet Formulas (formulas.js)](formulas.js)
-4. Save the script project.
+3. copy and paste the formulas directly into the cells directed for the individual formulas
+4. Save the spreadsheet
 
 ### Step 2: Implementation
-after the spreadsheet is set up and the code is entered into app-script, swap the constant **"SSD-ID"** with your spreadsheet ID (docs.google.com/spreadsheet/**yourID**/edit)
+after the spreadsheet is set up and the code is entered into app-script, swap the constant **"SSD-URL"** with your spreadsheet URL
 
 ---
 
@@ -43,16 +43,18 @@ after the spreadsheet is set up and the code is entered into app-script, swap th
 1. create a new empty script
 2. copy and paste:
    * [Sheet-State-Drive layer 1 processor (L1.js)](L1.js)
-3. deploy the script under "library"
-4. copy the id (https://script.google.com/home/projects/**yourID**/edit)
+3. copy the URL of the spreadsheet you have set up and paste onto the variable "SSD_URL"
+4. deploy the script under "library"
 
 ### step 2: layer 2
 1. create another empty script
 2. navigate to the "library" tab on the left under the script selection, and click "+"
-3. paste the id, click "lookup", and select version as "Head", select identifier as "L1", and click "add".
-4. copy and paste:
+3. copy and paste the ID of the app script (https://script.google.com/home/projects/**your ID**/edit)
+4. click "lookup", and select version as "Head", select identifier as "L1", and click "add".
+5. copy and paste:
    * [Sheet-State-Drive layer 2 processor (L2.js)](L2.js)
-5. (optional) rename the file to "L2" for easier navigation
+6. again copy and paste the data spreadsheet's URL into "SSD_URL" variable at the beginning of the script 
+7. (optional) rename the file to "L2" for easier navigation
 
 ### step 3: layer 3 (user interface)
 1. add a new code file, and select "script"
@@ -61,6 +63,7 @@ after the spreadsheet is set up and the code is entered into app-script, swap th
    * [Sheet-State-Drive user interface (L3.js)](L3.js)
 4. select deploy, then select as a library
 5. click deploy
+- note: this layer is in the same project as layer 2, but both layer 3 and layer 2 are in a separate project from layer 1
 
 ### you have completed setup!
 
