@@ -4,10 +4,8 @@
  * Reserved: Row 1 is used for the Mega Array (ID 0)
  */
 
-const SSD_ID = "[YOUR SPREADSHEET ID]";
-//input your spreadsheet ID here
-const SSD_NAME = "SSD";
-//change the name of the sheet name (DIFFERENT FROM SPREADSHEET NAME) to SSD
+const SSD_URL = "[YOUR SPREADSHEET URL]";
+//input your spreadsheet url here
 
 /**
  * BUS LOGIC: Zigzag ID -> Physical Cell
@@ -45,7 +43,7 @@ function _getPhysicalCoords(id) {
  * L1 WRITE (DMA): Executed by Project A
  */
 function write(id, value, title) {
-  const sheet = SpreadsheetApp.openById(SSD_ID).getSheetByName(SSD_NAME);
+  const sheet = SpreadsheetApp.openByURL(SSD_URL).getActiveSheet();
   const coords = _getPhysicalCoords(id);
   
   // Write the Value and Title vertically
@@ -58,7 +56,7 @@ function write(id, value, title) {
  * L1 READ (SENSE): Executed by Project A
  */
 function read(id) {
-  const sheet = SpreadsheetApp.openById(SSD_ID).getSheetByName(SSD_NAME);
+  const sheet = SpreadsheetApp.openByURL(SSD_URL).getActiveSheet();
   const coords = _getPhysicalCoords(id);
   
   // Only the top cell (Value) is needed for data retrieval
