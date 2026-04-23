@@ -49,7 +49,7 @@ after the spreadsheet is set up and the code is entered into app-script, swap th
 ### step 2: layer 2
 1. create another empty script
 2. navigate to the "library" tab on the left under the script selection, and click "+"
-3. copy and paste the ID of the app script (https://script.google.com/home/projects/**your ID**/edit)
+3. copy and paste the ID of the app script (script.google.com/home/projects/**your ID**/edit)
 4. click "lookup", and select version as "Head", select identifier as "L1", and click "add".
 5. copy and paste:
    * [Sheet-State-Drive layer 2 processor (L2.js)](L2.js)
