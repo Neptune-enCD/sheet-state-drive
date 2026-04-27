@@ -1,5 +1,23 @@
 //paste into Cell A1
-=TEXTJOIN("|", TRUE, BYCOL(A2:Z, LAMBDA(col, TEXTJOIN("|", TRUE, BYROW(col, LAMBDA(cell, IF(AND(MOD(ROW(cell), 2) = 1, NOT(ISBLANK(cell))), cell & ":" & ROUNDDOWN((((ROW(cell)-1)/2) + COLUMN(cell)-1), 0), "")))))))
+=TEXTJOIN("|", TRUE, MAP(A2:Z, LAMBDA(cell, 
+  LET(
+    r, ROW(cell),
+    c, COLUMN(cell),
+    val, cell,
+    is_data_row, MOD(r, 2) = 1,
+    IF(AND(is_data_row, NOT(ISBLANK(val))), 
+      val & ":" & LET(
+        grid_r, (r - 1)/ 2,
+        grid_c, c,
+        w, grid_r + grid_c - 2,
+        t, (w * (w + 1)) / 2,
+        id, t + IF(MOD(w, 2) = 0, grid_r, grid_c),
+        id
+      ), 
+    "")
+  )
+)))
+
 
 //paste into cell B1
 =MATCH(TRUE, MAP(SEQUENCE(100, 1, 1), LAMBDA(n, LET(
