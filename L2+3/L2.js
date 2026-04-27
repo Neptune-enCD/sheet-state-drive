@@ -77,5 +77,5 @@ function write_(value, title, priority, not_overwrite) {
     }
     L1.write(id, value, title);
   }
-  return "success!  ID: " + id
+  return Logger.log("success!  ID: " + id)
 }
