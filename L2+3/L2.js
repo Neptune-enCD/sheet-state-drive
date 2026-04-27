@@ -66,7 +66,8 @@ function write_(value, title, priority, not_overwrite) {
   if (id) {
     if (not_overwrite) {
       throw new Error("BLOCKED: Title '" + title + "' already exists and overwrite is disabled.")
-    }
+    } else {
+      L1.write(id, value, title);
   } else {
     //find empty id
     if (priority === true) {
@@ -74,7 +75,7 @@ function write_(value, title, priority, not_overwrite) {
     } else {
       id = id_read_(-1);
     }
+    L1.write(id, value, title);
   }
-  L1.write(id, value, title);
   return "success!  ID: " + id
 }
