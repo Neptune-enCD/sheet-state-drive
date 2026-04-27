@@ -33,6 +33,8 @@ function write (value,title,priority,overwrite) {
  * @param {string} title - the unique name to search for. leave '' if you want to search with ID instead
  * @param {number} id - (NOT RECOMMENDED) the id to search for. ignore if you want to search for title
  * 
+ * if title is not found in the SSD, null will be outputted
+ *
  * ONLY ONE. DO NOT ENTER BOTH OR NEITHER!
  */
 function read (title,id) {
