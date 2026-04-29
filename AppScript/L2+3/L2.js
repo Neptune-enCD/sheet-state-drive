@@ -59,12 +59,12 @@ function read_(title) {
   return output
 }
 
-function write_(value, title, priority, not_overwrite) {
+function write_(value, title, priority, overwrite) {
   //step 1: check for preexisting data
   const lookup = getMegaMap_();
   let id = lookup[title];
   if (id) {
-    if (not_overwrite) {
+    if (overwrite == false) {
       throw new Error("BLOCKED: Title '" + title + "' already exists and overwrite is disabled.")
     } else {
       Logger.log("existing title, overwriting data instead");
