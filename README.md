@@ -1,14 +1,13 @@
 # Sheet-State-Drive (SSD)
-**Version:** 0.8 (Stable?)
+### Version: 1.0.0 (Stable)
+#### for detailed update description, [view the changelog here](V1.0.0_release_log.md)
 
 <sub> Copyright (c) 2026 Neptune-enCD </sub>
 
 ### Technical Advisory
-This project is currently in **BETA pre-release**. Users should expect significant bugs, potential crashes, and data instability. Please report all defects via the repository's Issue tracker to facilitate patching and stability improvements.
+After testing from me no bugs should be experienced, however I cannot guarantee the code to be perfect. Please report all defects through the GitHub Issue tracker to be fixed.
 
-**Projected Initial release:**  27/4/2026 if no bugs are found
-
-**Licensing:** Distributed under the MIT License. Attribution to the original author is required.
+**Licensing:** Distributed under the MIT License. Proper attribution to the original author is required.
 
 ---
 
@@ -43,7 +42,7 @@ after the spreadsheet is set up and the code is entered into app-script, swap th
 1. create a new empty script
 2. copy and paste:
    * [Sheet-State-Drive layer 1 processor (L1.js)](L1.js)
-3. copy the URL of the spreadsheet you have set up and paste onto the variable "SSD_URL"
+3. copy the URL of the spreadsheet you have set up and paste onto the variable `SSD_URL`
 4. deploy the script under "library"
 
 ### step 2: layer 2
@@ -53,7 +52,7 @@ after the spreadsheet is set up and the code is entered into app-script, swap th
 4. click "lookup", and select version as "Head", select identifier as "L1", and click "add".
 5. copy and paste:
    * [Sheet-State-Drive layer 2 processor (L2.js)](L2.js)
-6. again copy and paste the data spreadsheet's URL into "SSD_URL" variable at the beginning of the script 
+6. again copy and paste the data spreadsheet's URL into `SSD_URL` variable at the beginning of the script 
 7. (optional) rename the file to "L2" for easier navigation
 
 ### step 3: layer 3 (user interface)
@@ -65,18 +64,18 @@ after the spreadsheet is set up and the code is entered into app-script, swap th
 5. click deploy
 - note: this layer is in the same project as layer 2, but both layer 3 and layer 2 are in a separate project from layer 1
 
-### you have completed setup!
+### you have completed the setup!
 
 ---
 
 ## use instruction: (only after finishing the entire setup process)
 
-1. copy the ID of the script (refrence to the app script set up if you don't know what is the ID)
+1. copy the ID of the script (reference to the app script set up if you don't know what is the ID)
 2. in the script which you would like to use the SSD, select "+" on "library"
 3. paste the ID and click "lookup"
 4. select version to "head" and the identifier to "SSD" (you can set the identifier to anything, however I recommend "SSD")
-5. when you need to write, enter "SSD.write()", and the directory of the function will tell you what to imput
-6. same with read, enter "SSD.read()" and reference to the directory for instruction of the values to imput
+5. When you need to write, enter `SSD.write()`, and the directory of the function will tell you what to input
+6. same with read, enter `SSD.read()` and reference to the directory for instruction of the values to input
 
 ---
 
@@ -86,7 +85,8 @@ Forks and community-driven enhancements are welcome. Per the terms of the MIT Li
 ---
 
 ## Bug Reporting
-To report a critical bug or system failure, please open a formal Issue on this repository. Ensure the report includes:
+To report a critical bug or system failure, please open an Issue on this repository. Ensure the report includes:
 * A comprehensive description of the failure.
 * The environment in which the bug occurred.
 * Step-by-step instructions to reproduce the error.
+

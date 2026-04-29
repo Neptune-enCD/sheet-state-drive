@@ -67,6 +67,7 @@ function write_(value, title, priority, not_overwrite) {
     if (not_overwrite) {
       throw new Error("BLOCKED: Title '" + title + "' already exists and overwrite is disabled.")
     } else {
+      Logger.log("existing title, overwriting data instead");
       L1.write(id, value, title);
   } else {
     //find empty id
@@ -77,5 +78,15 @@ function write_(value, title, priority, not_overwrite) {
     }
     L1.write(id, value, title);
   }
+    //updating the cache
+  lookup[title] = id;
+  CacheService.getScriptCache().put("MEGA_MAP_JSON", JSON.stringify(lookup), 3600);
+  
   return Logger.log("success!  ID: " + id)
+}
+
+function reset_button() {
+  //use this when the script cache is outdated due to a bug
+  CacheService.getScriptCache().remove("MEGA_MAP_JSON");
+  Logger.log("RESET BUTTON COMPLETED");
 }
