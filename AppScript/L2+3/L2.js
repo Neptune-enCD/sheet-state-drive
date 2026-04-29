@@ -84,3 +84,9 @@ function write_(value, title, priority, not_overwrite) {
   
   return Logger.log("success!  ID: " + id)
 }
+
+function reset_button() {
+  //use this when the script cache is outdated due to a bug
+  CacheService.getScriptCache().remove("MEGA_MAP_JSON");
+  Logger.log("RESET BUTTON COMPLETED");
+}
