@@ -64,11 +64,12 @@ function write_(value, title, priority, overwrite) {
   const lookup = getMegaMap_();
   let id = lookup[title];
   if (id) {
-    if (overwrite == false) {
+    if (overwrite === false) {
       throw new Error("BLOCKED: Title '" + title + "' already exists and overwrite is disabled.")
     } else {
       Logger.log("existing title, overwriting data instead");
       L1.write(id, value, title);
+    }
   } else {
     //find empty id
     if (priority === true) {
