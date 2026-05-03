@@ -1,5 +1,5 @@
 # Sheet-State-Drive (SSD)
-### Version: 1.0.1 (Stable)
+### Version: 1.0.2 (Stable)
 #### for detailed update description, [view the changelog here](V1.0.0_release_log.md)
 
 <sub> Copyright (c) 2026 Neptune-enCD </sub>
