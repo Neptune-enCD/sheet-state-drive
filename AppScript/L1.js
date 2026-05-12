@@ -68,3 +68,14 @@ function read(id) {
     return rawValue || null;
   }
 }
+
+/**
+ * L1 delete !DANGEROUS!
+ * only use when necessary
+ */
+function remove(id) {
+  const sheet = SpreadsheetApp.openByUrl(SSD_URL).getActiveSheet();
+  const coords = _getPhysicalCoords(id);
+
+  sheet.getRange(coords.row, coords.col).clear();
+}
