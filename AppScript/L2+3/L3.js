@@ -49,3 +49,22 @@ function read (title,id) {
   }
   throw new Error ("neither input entered! the script is unable to proceed")
 }
+
+/** !danger! deletes data
+ * 
+ * @param {string} title - the title of the value to delete
+ * @param {boolean} failsafe - as a failsafe for deleting values, this value must be true
+ */
+function remove (title, failsafe) {
+  if (title == "") {
+    Logger.log("title not entered, bumping script");
+    return
+  }
+  if (failsafe !== true) {
+    throw new Error("failsafe activated, denying access to deletion");
+  }
+  Logger.log("deletion started.");
+  clear_value_(title);
+  Logger.log("completed");
+  return
+}
