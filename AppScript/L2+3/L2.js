@@ -91,3 +91,16 @@ function reset_button() {
   CacheService.getScriptCache().remove("MEGA_MAP_JSON");
   Logger.log("RESET BUTTON COMPLETED");
 }
+
+function clear_value_(title) {
+  const database = getMegaMap_();
+  const id = database[title];
+  if (id) {
+    L1.remove(id);
+    Logger.log("deleted");
+    return
+  } else {
+    Logger.log("title not found, bumping script");
+    throw new ReferenceError("invalid title");
+  }
+}
