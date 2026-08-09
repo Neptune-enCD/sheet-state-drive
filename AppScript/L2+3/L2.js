@@ -6,7 +6,7 @@ function id_read_(id) {
     const read_data = L1.read(id);
     return read_data
   } else {
-    const spreadsheet = SpreadsheetApp.openByURL(SSD_URL);
+    const spreadsheet = SpreadsheetApp.openByUrl(SSD_URL);
     const sheet = spreadsheet.getActiveSheet();
     let empty_cell;
     if (id === 0) {
@@ -30,7 +30,7 @@ function getMegaMap_() {
   }
 
   // 2. Cache miss: Perform the slow API/Spreadsheet request
-  const ss = SpreadsheetApp.openByURL(SSD_URL);
+  const ss = SpreadsheetApp.openByUrl(SSD_URL);
   const raw = ss.getActiveSheet().getRange("A1").getValue();
   
   if (!raw) return {};
@@ -64,11 +64,12 @@ function write_(value, title, priority, overwrite) {
   const lookup = getMegaMap_();
   let id = lookup[title];
   if (id) {
-    if (overwrite == false) {
+    if (overwrite === false) {
       throw new Error("BLOCKED: Title '" + title + "' already exists and overwrite is disabled.")
     } else {
       Logger.log("existing title, overwriting data instead");
       L1.write(id, value, title);
+    }
   } else {
     //find empty id
     if (priority === true) {
@@ -89,4 +90,17 @@ function reset_button() {
   //use this when the script cache is outdated due to a bug
   CacheService.getScriptCache().remove("MEGA_MAP_JSON");
   Logger.log("RESET BUTTON COMPLETED");
+}
+
+function clear_value_(title) {
+  const database = getMegaMap_();
+  const id = database[title];
+  if (id) {
+    L1.remove(id);
+    Logger.log("deleted");
+    return
+  } else {
+    Logger.log("title not found, bumping script");
+    throw new ReferenceError("invalid title");
+  }
 }

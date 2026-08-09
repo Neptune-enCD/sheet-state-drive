@@ -43,7 +43,7 @@ function _getPhysicalCoords(id) {
  * L1 WRITE (DMA): Executed by Project A
  */
 function write(id, value, title) {
-  const sheet = SpreadsheetApp.openByURL(SSD_URL).getActiveSheet();
+  const sheet = SpreadsheetApp.openByUrl(SSD_URL).getActiveSheet();
   const coords = _getPhysicalCoords(id);
   
   // Write the Value and Title vertically
@@ -56,7 +56,7 @@ function write(id, value, title) {
  * L1 READ (SENSE): Executed by Project A
  */
 function read(id) {
-  const sheet = SpreadsheetApp.openByURL(SSD_URL).getActiveSheet();
+  const sheet = SpreadsheetApp.openByUrl(SSD_URL).getActiveSheet();
   const coords = _getPhysicalCoords(id);
   
   // Only the top cell (Value) is needed for data retrieval
@@ -67,4 +67,15 @@ function read(id) {
   } catch (e) {
     return rawValue || null;
   }
+}
+
+/**
+ * L1 delete !DANGEROUS!
+ * only use when necessary
+ */
+function remove(id) {
+  const sheet = SpreadsheetApp.openByUrl(SSD_URL).getActiveSheet();
+  const coords = _getPhysicalCoords(id);
+
+  sheet.getRange(coords.row, coords.col).clear();
 }
